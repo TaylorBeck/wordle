@@ -17,7 +17,7 @@ const props = defineProps({
     required: true
   },
   submitted: {
-    type: String,
+    type: Boolean,
     required: true
   }
 });
