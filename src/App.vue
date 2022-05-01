@@ -1,21 +1,33 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div class="flex flex-col h-screen max-w-md mx-auto justify-evenly">
+    <keyboard @onKeyPress="handleKeyPressed" />
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script setup>
+import { onMounted } from "vue";
+
+import Keyboard from "./components/Keyboard.vue";
+
+onMounted(() => {
+  window.addEventListener("keyup", (event) => {
+    event.preventDefault();
+
+    let key =
+      event.keyCode == 13
+        ? "{enter}"
+        : event.keyCode == 8
+        ? "{bksp}"
+        : String.fromCharCode(event.keyCode).toUpperCase();
+
+    handleKeyPressed(key);
+  });
+});
+
+const handleKeyPressed = (key) => {
+  console.log(key);
+};
+</script>
+
+
+<style></style>
