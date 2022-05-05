@@ -48,23 +48,24 @@ onMounted(() => {
       '{enter}': 'ENTER',
       '{bksp}': " ← "
     },
+    theme: "hg-theme-default bg-transparent",
     onKeyPress: onKeyPress
   })
 });
 
 watch(
   () => props.guessedLetters,
-  (guessedLetters, previousGuessedLetters) => {
+  (guessedLetters, prevGuessedLetters) => {
     keyboard.value.addButtonTheme(
-      guessedLetters.miss.join(" "),
+      guessedLetters.miss.join(" "), 
       "miss"
     );
     keyboard.value.addButtonTheme(
-      guessedLetters.found.join(" "),
+      guessedLetters.found.join(" "), 
       "found"
     );
     keyboard.value.addButtonTheme(
-      guessedLetters.hint.join(" "),
+      guessedLetters.hint.join(" "), 
       "hint"
     );
   },
@@ -73,15 +74,15 @@ watch(
 </script>
 
 <style>
-div.miss {
+.miss {
   @apply bg-gray-500 !important;
   @apply text-white;
 }
-div.found {
+.found {
   @apply bg-green-500 !important;
   @apply text-white;
 }
-div.hint:not(:found) {
+.hint:not(:found) {
   @apply bg-yellow-500 !important;
   @apply text-white;
 }
