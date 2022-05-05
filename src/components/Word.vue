@@ -1,5 +1,5 @@
 <template>
-  <div class="grid max-w-xs grid-cols-5 gap-2 mx-auto mb-2">
+  <div class="grid max-w-xs grid-cols-5 gap-4 mb-2 last:mb-0">
     <letter v-for="n in 5" :key="n" :letter="value[n - 1]" />
   </div>
 </template>
