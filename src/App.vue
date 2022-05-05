@@ -1,20 +1,39 @@
 <template>
-  <div class="flex flex-col h-screen max-w-md mx-auto justify-evenly">
-    <div>
-      <word v-for="(guess, index) in state.guesses" :key="index" :value="guess" :solution="state.solution" :submitted="index < state.currentGuessIndex" /> 
+  <div class="flex justify-between">
+    <QuestionMarkCircleIcon class="h-8 w-8 ml-3 mt-4 hover:text-green-700 hover:cursor-pointer" />
+    <h1 class="font-mono font-bold text-3xl text-center my-4">
+      Wayfindle
+    </h1>
+    <ChartBarIcon class="h-8 w-8 mr-3 mt-4 hover:text-green-700 hover:cursor-pointer" />
+  </div>
+  <hr class="border-t-2" />
+  <div class="game flex flex-col max-w-lg mx-auto justify-evenly">
+    <div class="mx-auto">
+      <word
+        v-for="(guess, index) in state.guesses"
+        :key="index"
+        :value="guess"
+        :solution="state.solution"
+        :submitted="index < state.currentGuessIndex"
+      />
     </div>
-    <keyboard @onKeyPress="handleKeyPressed" :guessedLetters="state.guessedLetters" />
+    <keyboard
+      @onKeyPress="handleKeyPressed"
+      :guessedLetters="state.guessedLetters"
+    />
   </div>
 </template>
 
 <script setup>
 import { reactive, onMounted } from "vue";
 
+import { QuestionMarkCircleIcon, ChartBarIcon, SunIcon } from "@heroicons/vue/outline";
+
 import Word from "./components/Word.vue";
 import Keyboard from "./components/Keyboard.vue";
 
 const state = reactive({
-  solution: "apple",
+  solution: "BOOKS",
   currentGuessIndex: 0,
   guesses: ["", "", "", "", "", ""],
   guessedLetters: {
@@ -53,7 +72,7 @@ const handleKeyPressed = (key) => {
       for (let i = 0; i < currentGuess.length; i++) {
         let char = currentGuess.charAt(i);
 
-        if (char === state.solution.charAt(i)) {
+        if (char == state.solution.charAt(i)) {
           state.guessedLetters.found.push(char);
         } else if (state.solution.indexOf(char) != -1) {
           state.guessedLetters.hint.push(char);
@@ -73,4 +92,8 @@ const handleKeyPressed = (key) => {
 };
 </script>
 
-<style></style>
+<style>
+.game {
+  height: 90vh;
+}
+</style>

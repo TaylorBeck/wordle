@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.6",
     "simple-keyboard": "^3.4.91",
     "vue": "^3.2.25"
   },
