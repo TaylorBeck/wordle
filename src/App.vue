@@ -27,7 +27,7 @@
 <script setup>
 import { reactive, onMounted } from "vue";
 
-import { QuestionMarkCircleIcon, ChartBarIcon, SunIcon } from "@heroicons/vue/outline";
+import { QuestionMarkCircleIcon, ChartBarIcon } from "@heroicons/vue/outline";
 
 import Word from "./components/Word.vue";
 import Keyboard from "./components/Keyboard.vue";
