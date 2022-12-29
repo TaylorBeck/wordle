@@ -75,15 +75,15 @@ watch(
 
 <style>
 .miss {
-  @apply bg-gray-500 !important;
+  @apply bg-gray-400 !important;
   @apply text-white;
 }
 .found {
-  @apply bg-green-500 !important;
+  @apply bg-green-600 !important;
   @apply text-white;
 }
-.hint:not(:found) {
-  @apply bg-yellow-500 !important;
+.hint:not(.found) {
+  @apply bg-yellow-400 !important;
   @apply text-white;
 }
 </style>
