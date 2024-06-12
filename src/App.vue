@@ -2,7 +2,7 @@
   <div class="flex justify-between">
     <QuestionMarkCircleIcon class="h-8 w-8 ml-3 mt-4 hover:text-green-700 hover:cursor-pointer click:animate-ping" />
     <h1 class="font-bold font-mono text-3xl text-center my-4">
-      Wayfindle
+      Wordle
     </h1>
     <ChartBarIcon class="h-8 w-8 mr-3 mt-4 hover:text-green-700 hover:cursor-pointer" />
   </div>
